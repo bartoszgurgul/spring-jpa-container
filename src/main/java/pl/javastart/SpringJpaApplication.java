@@ -9,7 +9,7 @@ import pl.javastart.model.Book;
 @Configuration
 @ComponentScan
 public class SpringJpaApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(SpringJpaApplication.class);
         BookDao bookDao = context.getBean(BookDao.class);
@@ -21,6 +21,8 @@ public class SpringJpaApplication {
         //odczyt
         Book book1 = bookDao.get(1L);
         System.out.println(book1);
+
+        Thread.sleep(5000);
         context.close();
     }
 
